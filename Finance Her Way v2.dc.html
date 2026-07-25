@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<style>
+  html, body { margin: 0; padding: 0; background: #0D1B2A; }
+  body { font-family: "Roboto", system-ui, sans-serif; color: #0D1B2A; -webkit-font-smoothing: antialiased; }
+  a { color: #415A77; text-decoration: none; transition: color 150ms cubic-bezier(0.22,0.61,0.36,1); }
+  a:hover { color: #B8953F; }
+  @keyframes hj-float { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
+</style>
+</helmet>
+<div style="background: #0D1B2A; min-height: 100vh">
+  <nav style="display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1140px; margin: 0 auto; padding: 26px 32px">
+    <div style="display: flex; align-items: baseline; gap: 12px">
+      <span style="font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; font-size: 20px; color: #E0E1DD">Finance Her Way</span>
+      <span style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #B8953F">Research · Coaching · Growth</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 30px">
+      <button onClick="{{ goHome }}" style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; background: none; border: none; cursor: pointer; padding: 6px 0; border-bottom: 2px solid {{ homeUnderline }}; color: {{ homeColor }}" style-hover="color: #B8953F">Home</button>
+      <button onClick="{{ goForms }}" style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; background: none; border: none; cursor: pointer; padding: 6px 0; border-bottom: 2px solid {{ formsUnderline }}; color: {{ formsColor }}" style-hover="color: #B8953F">Research &amp; Forms</button>
+      <button onClick="{{ goTestimonials }}" style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; background: none; border: none; cursor: pointer; padding: 6px 0; border-bottom: 2px solid {{ testimonialsUnderline }}; color: {{ testimonialsColor }}" style-hover="color: #B8953F">Testimonials</button>
+      <button onClick="{{ goProducts }}" style="display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; background: none; border: none; cursor: pointer; padding: 6px 0; border-bottom: 2px solid {{ productsUnderline }}; color: {{ productsColor }}" style-hover="color: #B8953F">Products<span style="font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0D1B2A; background: #B8953F; border-radius: 999px; padding: 3px 8px">Soon</span></button>
+      <button onClick="{{ goForms }}" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.04em; cursor: pointer; color: #0D1B2A; background: #B8953F; border: none; padding: 12px 24px; border-radius: 999px; transition: background 150ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="background: #CBA854">Take a Form</button>
+    </div>
+  </nav>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <header data-screen-label="Hero" style="max-width: 1140px; margin: 0 auto; padding: 72px 32px 120px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: center; perspective: 1400px">
+    <div>
+      <div style="display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(184,149,63,0.4); border-radius: 999px; padding: 8px 18px; margin-bottom: 28px">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: #B8953F"></span>
+        <span style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #E0E1DD">The research phase is open</span>
+      </div>
+      <h1 style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 62px; font-weight: 700; line-height: 1.12; color: #FFFFFF; margin: 0 0 12px; text-wrap: balance">Bridging the financial literacy gap,</h1>
+      <div style="font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; font-size: 62px; line-height: 1.1; color: #B8953F; margin: 0 0 28px">person by person.</div>
+      <p style="font-family: 'Roboto', sans-serif; font-size: 19px; line-height: 1.6; color: rgba(224,225,221,0.75); max-width: 520px; margin: 0 0 40px; text-wrap: pretty">Finance Her Way begins with research. Three focused forms — for minority women, small businesses, and nonprofits — pinpoint where the gaps really are, so every resource we build actually fits.</p>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
+        <button onClick="{{ goForms }}" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.03em; cursor: pointer; color: #0D1B2A; background: #B8953F; border: none; padding: 18px 36px; border-radius: 999px; box-shadow: 0 18px 40px rgba(184,149,63,0.35); transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 300ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="transform: translateY(-4px); box-shadow: 0 26px 55px rgba(184,149,63,0.45)">Start With a Form</button>
+        <div style="display: flex; align-items: center; gap: 10px">
+          <i class="bi bi-calendar-heart" style="font-size: 18px; color: #B8953F"></i>
+          <span style="font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; font-size: 16px; color: rgba(224,225,221,0.8)">1-on-1 sessions — coming soon</span>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative; transform-style: preserve-3d">
+      <div style="position: absolute; inset: 30px -26px -26px 26px; background: #1B263B; border-radius: 14px; transform: translateZ(-80px) rotateY(-6deg)"></div>
+      <div style="position: absolute; inset: 15px -13px -13px 13px; background: #B8953F; border-radius: 14px; transform: translateZ(-40px) rotateY(-3deg); opacity: 0.9"></div>
+      <img src="uploads/photo-1784865866543.jpeg" alt="McKylee Mosby working on her laptop" style="position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; box-shadow: 0 30px 70px rgba(0,0,0,0.55); display: block; transform: rotateY(-4deg); transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="transform: rotateY(0deg) translateY(-6px)">
+      <div style="position: absolute; left: -34px; bottom: 42px; background: #FFFFFF; border-radius: 12px; padding: 16px 22px; box-shadow: 0 20px 45px rgba(0,0,0,0.4); animation: hj-float 6s ease-in-out infinite">
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; color: #0D1B2A">$100M+</div>
+        <div style="font-family: 'Roboto', sans-serif; font-size: 12px; color: #415A77">reporting experience</div>
+      </div>
+      <div style="position: absolute; right: -20px; top: 46px; background: rgba(13,27,42,0.9); border: 1px solid rgba(184,149,63,0.5); border-radius: 12px; padding: 14px 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.4); animation: hj-float 7s ease-in-out infinite 1.2s">
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #B8953F">McKylee Mosby</div>
+        <div style="font-family: 'Roboto', sans-serif; font-size: 12px; color: #E0E1DD">Founder</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="mission" data-screen-label="Mission" style="background: #FFFFFF; padding: 100px 32px; border-radius: 28px 28px 0 0">
+    <div style="max-width: 880px; margin: 0 auto; text-align: center">
+      <div style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #B8953F; margin-bottom: 24px">Our Mission</div>
+      <p style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 29px; line-height: 1.5; color: #0D1B2A; margin: 0 0 28px; text-wrap: balance">Finance Her Way exists to close the financial literacy gap by empowering women with practical financial education, personalized coaching, and accessible resources.</p>
+      <p style="font-family: 'Roboto', sans-serif; font-size: 17px; line-height: 1.65; color: #415A77; max-width: 640px; margin: 0 auto; text-wrap: pretty">We also support nonprofits, startups, and underserved businesses through financial guidance, research-driven solutions, and sustainable growth strategies — because financial confidence should never depend on where you started.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Research preview" style="background: #F8F9FA; padding: 100px 32px">
+    <div style="max-width: 1140px; margin: 0 auto">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-bottom: 56px">
+        <div style="max-width: 560px">
+          <div style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #B8953F; margin-bottom: 16px">Where We're Starting</div>
+          <h2 style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 40px; font-weight: 700; line-height: 1.2; color: #0D1B2A; margin: 0">Research first. Everything else is built on it.</h2>
+        </div>
+        <button onClick="{{ goForms }}" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; cursor: pointer; color: #FFFFFF; background: #0D1B2A; border: none; padding: 15px 30px; border-radius: 999px; transition: background 150ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="background: #1B263B">See All Three Forms</button>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; perspective: 1200px">
+        <sc-for list="{{ researchCards }}" as="card" hint-placeholder-count="3">
+          <div style="background: #FFFFFF; border: 1px solid #E9ECEF; border-radius: 14px; padding: 36px 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transform-style: preserve-3d; transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 300ms cubic-bezier(0.22,0.61,0.36,1); cursor: pointer" style-hover="transform: translateY(-10px) rotateX(3deg); box-shadow: 0 30px 60px rgba(13,27,42,0.18)" onClick="{{ goForms }}">
+            <div style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 44px; font-weight: 700; color: rgba(184,149,63,0.35); line-height: 1; margin-bottom: 20px">{{ card.num }}</div>
+            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 19px; font-weight: 700; color: #0D1B2A; margin: 0 0 10px">{{ card.title }}</h3>
+            <p style="font-family: 'Roboto', sans-serif; font-size: 15px; line-height: 1.6; color: #415A77; margin: 0; text-wrap: pretty">{{ card.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" data-screen-label="About" style="padding: 100px 32px; background: #FFFFFF">
+    <div style="max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: start">
+      <div style="position: sticky; top: 32px; perspective: 1000px">
+        <img src="pasted-1784867039642-0-mryfr20h-muxy.jpeg" alt="McKylee Mosby" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 18%; border-radius: 14px; box-shadow: 0 20px 50px rgba(13,27,42,0.25); display: block; margin-bottom: 20px; transform: rotateY(3deg); transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="transform: rotateY(0deg)">
+        <div style="background: #0D1B2A; border-radius: 14px; padding: 26px 30px">
+          <div style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #B8953F; margin-bottom: 16px">Working Toward</div>
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <i class="bi bi-patch-check" style="font-size: 18px; color: #B8953F"></i>
+              <span style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: #E0E1DD">SIE — Securities Industry Essentials</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px">
+              <i class="bi bi-patch-check" style="font-size: 18px; color: #B8953F"></i>
+              <span style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: #E0E1DD">AFC — Accredited Financial Counselor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #B8953F; margin-bottom: 16px">About Me</div>
+        <h2 style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 42px; font-weight: 700; line-height: 1.15; color: #0D1B2A; margin: 0 0 24px">Hi, I'm McKylee.</h2>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 17px; line-height: 1.7; color: #1B263B; margin: 0 0 18px; text-wrap: pretty">I thrive on providing guidance — there's nothing I enjoy more than knowing a solution I found helped another person move forward. God leads my path, and this work is where that purpose meets my profession.</p>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 17px; line-height: 1.7; color: #1B263B; margin: 0 0 36px; text-wrap: pretty">I'm a senior studying finance at the University of North Carolina at Pembroke and a three-time Pembroke Scholar. Today I work in financial reporting at VF Corporation, and along the way I've partnered with nonprofits — raising thousands of dollars and having my hands in reporting over $100 million.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px">
+          <sc-for list="{{ facts }}" as="fact" hint-placeholder-count="4">
+            <div style="background: #F8F9FA; border: 1px solid #E9ECEF; border-radius: 12px; padding: 20px 22px; transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 300ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15)">
+              <div style="font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: #0D1B2A">{{ fact.stat }}</div>
+              <div style="font-family: 'Roboto', sans-serif; font-size: 14px; color: #415A77; margin-top: 4px">{{ fact.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 15px; line-height: 1.7; color: #415A77; margin: 0; text-wrap: pretty">Nonprofit partners have included WOMAN, Capitol Area Forerunners, Delta Sigma Theta, and more.</p>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ isForms }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Research &amp; Forms" style="padding: 72px 32px 110px; min-height: 75vh">
+    <div style="max-width: 1140px; margin: 0 auto">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 64px">
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #B8953F; margin-bottom: 18px">Research-Fueled</div>
+        <h2 style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 46px; font-weight: 700; line-height: 1.15; color: #FFFFFF; margin: 0 0 18px">Research &amp; Forms</h2>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 17px; line-height: 1.65; color: rgba(224,225,221,0.75); margin: 0">Every answer shapes what Finance Her Way builds next. Pick the form that fits you — each one takes just a few minutes.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; perspective: 1200px; margin-bottom: 64px">
+        <sc-for list="{{ formCards }}" as="form" hint-placeholder-count="3">
+          <div style="background: #FFFFFF; border-radius: 16px; padding: 40px 32px; display: flex; flex-direction: column; gap: 16px; transform-style: preserve-3d; transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 300ms cubic-bezier(0.22,0.61,0.36,1); box-shadow: 0 15px 40px rgba(0,0,0,0.35)" style-hover="transform: translateY(-12px) rotateX(3deg); box-shadow: 0 40px 80px rgba(0,0,0,0.5)">
+            <div style="display: flex; align-items: center; justify-content: space-between">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(184,149,63,0.14); display: flex; align-items: center; justify-content: center">
+                <i class="{{ form.icon }}" style="font-size: 26px; color: #B8953F"></i>
+              </div>
+              <span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 38px; font-weight: 700; color: rgba(13,27,42,0.1); line-height: 1">{{ form.num }}</span>
+            </div>
+            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: #0D1B2A; margin: 0">{{ form.title }}</h3>
+            <p style="font-family: 'Roboto', sans-serif; font-size: 15px; line-height: 1.6; color: #415A77; margin: 0; flex: 1; text-wrap: pretty">{{ form.body }}</p>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px">
+              <sc-for list="{{ form.points }}" as="point" hint-placeholder-count="3">
+                <div style="display: flex; align-items: center; gap: 10px">
+                  <i class="bi bi-check2" style="font-size: 15px; color: #B8953F"></i>
+                  <span style="font-family: 'Roboto', sans-serif; font-size: 13.5px; color: #1B263B">{{ point }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <a href="{{ form.href }}" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; color: #FFFFFF; background: #0D1B2A; padding: 14px 28px; border-radius: 999px; text-align: center; transition: background 150ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="background: #415A77; color: #FFFFFF">{{ form.cta }}</a>
+          </div>
+        </sc-for>
+      </div>
+      <div style="max-width: 720px; margin: 0 auto; background: rgba(27,38,59,0.8); border: 1px solid rgba(184,149,63,0.35); border-radius: 16px; padding: 32px 40px; display: flex; align-items: center; gap: 24px">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(184,149,63,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+          <i class="bi bi-calendar-heart" style="font-size: 24px; color: #B8953F"></i>
+        </div>
+        <div>
+          <div style="font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px">1-on-1 coaching sessions — coming soon</div>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 14.5px; line-height: 1.6; color: rgba(224,225,221,0.75); margin: 0; text-wrap: pretty">Once the research phase wraps, free 30-minute sessions open up — reviewing your statements and building goals around what the research reveals. Fill out a form now and you'll be first in line.</p>
+        </div>
+      </div>
+      <p style="font-family: 'Roboto', sans-serif; font-size: 13px; color: rgba(224,225,221,0.5); text-align: center; max-width: 560px; margin: 40px auto 0">Responses are used for research and to shape services. Nothing is shared publicly without your explicit permission.</p>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ isTestimonials }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Testimonials" style="padding: 72px 32px 110px; min-height: 75vh">
+    <div style="max-width: 1140px; margin: 0 auto">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 64px">
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #B8953F; margin-bottom: 18px">Kind Words</div>
+        <h2 style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 46px; font-weight: 700; line-height: 1.15; color: #FFFFFF; margin: 0 0 18px">Testimonials</h2>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 17px; line-height: 1.65; color: rgba(224,225,221,0.75); margin: 0">Real words from the people this work serves. As the research phase unfolds, this page will grow — and your story could be here first.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; perspective: 1200px; margin-bottom: 56px">
+        <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+          <div style="background: #FFFFFF; border-radius: 16px; padding: 36px 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 15px 40px rgba(0,0,0,0.35); transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 300ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="transform: translateY(-10px) rotateX(3deg); box-shadow: 0 40px 80px rgba(0,0,0,0.5)">
+            <i class="bi bi-quote" style="font-size: 36px; color: #B8953F; line-height: 1"></i>
+            <p style="font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; font-size: 16.5px; line-height: 1.65; color: #1B263B; margin: 0; flex: 1">{{ t.quote }}</p>
+            <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #415A77">{{ t.who }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="text-align: center">
+        <button onClick="{{ goForms }}" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer; color: #0D1B2A; background: #B8953F; border: none; padding: 17px 36px; border-radius: 999px; box-shadow: 0 18px 40px rgba(184,149,63,0.35); transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="transform: translateY(-4px)">Be Part of the Research</button>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ isProducts }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Products" style="padding: 72px 32px 110px; min-height: 75vh; display: flex; align-items: center">
+    <div style="max-width: 760px; margin: 0 auto; text-align: center; perspective: 1000px">
+      <div style="display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(184,149,63,0.4); border-radius: 999px; padding: 8px 18px; margin-bottom: 32px">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: #B8953F"></span>
+        <span style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #E0E1DD">Coming Soon</span>
+      </div>
+      <h2 style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 52px; font-weight: 700; line-height: 1.15; color: #FFFFFF; margin: 0 0 22px; text-wrap: balance">Products, built from the research.</h2>
+      <p style="font-family: 'Roboto', sans-serif; font-size: 18px; line-height: 1.65; color: rgba(224,225,221,0.75); max-width: 560px; margin: 0 auto 48px; text-wrap: pretty">Tools, templates, and resources shaped by what the forms reveal — designed around real weaknesses, not guesses. The research you contribute today decides what gets built first.</p>
+      <div style="display: inline-block; background: rgba(27,38,59,0.8); border: 1px solid rgba(184,149,63,0.35); border-radius: 16px; padding: 28px 40px; transform: rotateX(4deg); box-shadow: 0 30px 60px rgba(0,0,0,0.45)">
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #B8953F; margin-bottom: 8px">Want to shape what's coming?</div>
+        <button onClick="{{ goForms }}" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; cursor: pointer; color: #0D1B2A; background: #B8953F; border: none; padding: 14px 30px; border-radius: 999px; transition: background 150ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="background: #CBA854">Fill Out a Research Form</button>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <footer style="background: #091320; padding: 64px 32px 0">
+    <div style="max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap">
+      <div>
+        <div style="font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; font-size: 22px; color: #FFFFFF; margin-bottom: 8px">Finance Her Way</div>
+        <div style="font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; font-size: 15px; color: rgba(224,225,221,0.6)">Making financial confidence a tool you can use.</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
+        <a href="https://instagram.com/themckyleemosby" style="display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: #E0E1DD" style-hover="color: #B8953F">
+          <i class="bi bi-instagram" style="font-size: 18px; color: #B8953F"></i>@themckyleemosby
+        </a>
+        <sc-if value="{{ hasEmail }}" hint-placeholder-val="{{ false }}">
+          <a href="{{ emailHref }}" style="display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: #E0E1DD" style-hover="color: #B8953F">
+            <i class="bi bi-envelope" style="font-size: 18px; color: #B8953F"></i>{{ email }}
+          </a>
+        </sc-if>
+        <button onClick="{{ goForms }}" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; cursor: pointer; color: #0D1B2A; background: #B8953F; border: none; padding: 12px 26px; border-radius: 999px; transition: background 150ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="background: #CBA854">Take a Form</button>
+      </div>
+    </div>
+    <div style="max-width: 1140px; margin: 32px auto 0; border-top: 1px solid rgba(224,225,221,0.12); padding: 24px 0 40px; font-family: 'Roboto', sans-serif; font-size: 13px; color: rgba(224,225,221,0.45)">© 2026 Finance Her Way · McKylee Mosby</div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;womenFormUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://forms.gle/zSjuS7KmdY6Ne7G2A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Forms&quot;}, &quot;businessFormUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://forms.gle/iRvzDpyDccAZp39Y6&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Forms&quot;}, &quot;nonprofitFormUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://forms.gle/6PE9T6hW6XvthKns8&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Forms&quot;}, &quot;email&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;hello.financeherway@gmail.com&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contact&quot;}}">
+class Component extends DCLogic {
+  state = { page: "home" };
+  renderVals() {
+    const email = this.props.email ?? "";
+    const page = this.state.page;
+    const go = (p) => () => { this.setState({ page: p }); window.scrollTo(0, 0); };
+    const active = "#B8953F", idle = "#E0E1DD", none = "transparent";
+    const nav = {};
+    for (const p of ["home", "forms", "testimonials", "products"]) {
+      nav[p + "Color"] = page === p ? active : idle;
+      nav[p + "Underline"] = page === p ? "#B8953F" : none;
+    }
+    return {
+      ...nav,
+      isHome: page === "home",
+      isForms: page === "forms",
+      isTestimonials: page === "testimonials",
+      isProducts: page === "products",
+      goHome: go("home"),
+      goForms: go("forms"),
+      goTestimonials: go("testimonials"),
+      goProducts: go("products"),
+      email,
+      hasEmail: email.length > 0,
+      emailHref: "mailto:" + email,
+      researchCards: [
+        { num: "01", title: "Minority Women", body: "Pinpointing where financial literacy gaps hit hardest — credit, saving, debt, and confidence." },
+        { num: "02", title: "Small Businesses", body: "Finding the weak points in your financials, from startup needs to sustainable cash flow." },
+        { num: "03", title: "Nonprofits", body: "Mapping struggles across donor aid, grant access, fundraising calendars, and source material." },
+      ],
+      formCards: [
+        { num: "01", icon: "bi bi-person-heart", title: "Minority Women", cta: "Take the Form",
+          href: this.props.womenFormUrl ?? "https://forms.gle",
+          body: "For minority women ready to find their weaknesses in financial literacy — so the education built next actually meets you where you are.",
+          points: ["Credit, debt & saving habits", "Confidence with money decisions", "What resources you're missing"] },
+        { num: "02", icon: "bi bi-shop", title: "Small Businesses", cta: "Take the Form",
+          href: this.props.businessFormUrl ?? "https://forms.gle",
+          body: "For small businesses that want to know their weak points on their financials — from startup needs to what's holding growth back.",
+          points: ["Startup & capital needs", "Bookkeeping & reporting gaps", "Cash-flow pain points"] },
+        { num: "03", icon: "bi bi-building-check", title: "Nonprofits", cta: "Take the Form",
+          href: this.props.nonprofitFormUrl ?? "https://forms.gle",
+          body: "For nonprofit organizations pinpointing their struggles — and getting matched with the guidance and materials that fix them.",
+          points: ["Donor aid & grant access", "Fundraising calendars", "Source material & reporting"] },
+      ],
+      testimonials: [
+        { quote: "Your words will live here. After you take part in the research or a future session, share what changed for you.", who: "Future participant · Research" },
+        { quote: "This spot is saved for the first woman who fills out a form and helps shape what gets built.", who: "Future client · Coaching" },
+        { quote: "Nonprofits and small businesses I have supported will share their experiences here too.", who: "Partner · Nonprofit" },
+      ],
+      facts: [
+        { stat: "$100M+", label: "Reported in financial statements I've had my hands in" },
+        { stat: "3×", label: "Pembroke Scholar at UNC Pembroke" },
+        { stat: "Thousands", label: "Raised in dollars for nonprofit partners" },
+        { stat: "VF Corp", label: "Where I work in financial reporting today" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
